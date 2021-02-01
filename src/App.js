@@ -1,31 +1,24 @@
 import React from "react";
 
+import Header from "./components/Header";
+import Categories from "./components/Categories";
+
 function App() {
   return (
   <div className="container">
-      <header>
-          <div className="header-logo">
-              <img src="images/coffe-guys-logo.png" alt="" className="header-logo-img" />
-              <div className="header-logo-text">
-                  <h2>Coffee guys</h2>
-                  <p>the freshest coffee from enthusiasts</p>
-              </div>
-          </div>
-          <button className="header-cart-button">
-              <p className="header-cart-button-price">520 ₽</p>
-              <img className="header-cart-button-cart_icon" src="images/shopping-cart.svg" alt="" />
-              <p>3</p>
-          </button>
-      </header>
+      <Header />
       <div className="content">
           <nav className="filters">
-              <div className="filters-div">
-                  <button className="filters-button filters-button-active">All</button>
-                  <button className="filters-button">Espresso</button>
-                  <button className="filters-button">Filter</button>
-                  <button className="filters-button">Capsules</button>
-                  <button className="filters-button">Drip bags</button>
-              </div>
+              <Categories
+                handleClick={(item) => console.log(item)}
+                items={[
+                  "All",
+                  "Filter",
+                  "Espresso",
+                  "Capsules",
+                  "Drip bags"
+                ]}
+              />
               <div className="filters-sorting">
                   <img className="filters-sorting-triangle" src="images/triangle.svg" alt="" />
                   <p className="filters-sorting-label">Sorted by: </p>
