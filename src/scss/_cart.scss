@@ -1,0 +1,232 @@
+// CART STYLES
+
+.cart {
+    max-width: 51rem;
+    margin: 0 auto;
+}
+
+.cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #F7F7F7;
+
+    &-logo {
+        font-family: "Proxima Nova";
+        font-weight: 700;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+
+        img {
+            width: 1.8rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &-clear {
+        color: #B6B6B6;
+        font-size: 1rem;
+        background-color: white;
+        border-radius: 50px;
+        border: none;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        img {
+            margin-right: .5rem;
+        }
+    }
+}
+
+
+.cart-item {
+    padding: 1.9rem 0;
+    border-bottom: 1px solid #F7F7F7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 5rem;
+        }
+
+        &-text {
+            margin-left: 1rem;
+
+            h3 {
+                font-family: "Proxima Nova";
+                font-weight: 700;
+                margin-bottom: .25rem;
+            }
+
+            p {
+                color: #8D8D8D;
+                font-size: 1.125rem;
+            }
+
+        }
+    }
+
+}
+
+.cart-item:last-child {
+    border: none;
+    padding-bottom: 2.5rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    font-family: "Proxima Nova";
+    font-weight: 700;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+        width: 1.8rem;
+        height: 1.8rem;
+
+        background-color: #FFFFFF;
+    }
+
+    &-minus, &-plus {
+        color: #FE5F1E;
+        border: 2px solid #FE5F1E;
+        margin: 0 .75rem;
+        font-size: .7rem;
+    }
+
+    &-minus:hover, &-plus:hover {
+        color: #fff;
+        background-color:  #FE5F1E;
+    }
+
+    &-price {
+        margin: 0 5.5rem 0;
+    }
+
+    .cart-delete-button {
+        border: 2px solid #D7D7D7;
+                
+        img {
+            width: .8rem;
+            height: .8rem;
+        }
+    }
+
+    .cart-delete-button:hover {
+        border: 2px solid #000;
+        background: #000;
+                
+        img {
+            width: .8rem;
+            height: .8rem;
+        }
+    }
+}
+
+@media (max-width:767px) {
+    .cart-item {
+        flex-direction: column;
+
+        &-info {
+            margin-bottom: 1rem;
+        }
+
+        &-actions-price {
+            margin: 0 1rem 0;
+        }
+    }
+}
+
+.cart-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-family: "Proxima Nova";
+    font-weight: 400;
+
+    &-quantity {
+        font-family: "Proxima Nova";
+        font-weight: 700;
+    }
+
+    &-sum {
+        font-family: "Proxima Nova";
+        font-weight: 700;
+        color: #FE5F1E;
+    }
+}
+
+@media (max-width:767px) {
+    .cart-total {
+        max-width: 30rem;
+        margin: 0 auto;
+    }
+}
+
+.cart-bottom-buttons {
+    margin-top: 2.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-go-back {
+        background: #FFFFFF;
+        border: 1px solid #D3D3D3;
+        border-radius: 30px;
+
+        color: #CACACA;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 1rem 2rem;
+
+        .go-back-arrow {
+            width: .45rem;
+            margin-right: .6rem;
+        }
+    }
+
+    &-buy-now {
+        padding: 1rem 2rem;
+        font-family: "Proxima Nova";
+        font-weight: 700;
+        color: #fff;
+        background: #FE5F1E;
+        border-radius: 30px;
+        border: none;
+    }
+}
+
+@media (max-width:767px) {
+    .cart-bottom-buttons {
+        max-width: 30rem;
+        margin: 2rem auto 0;
+        &-go-back{
+            padding: .6rem 1.1rem;
+        }
+
+        &-buy-now {
+            padding: .7rem 1.2rem;
+        }
+    }
+}
