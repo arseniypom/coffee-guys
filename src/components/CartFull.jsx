@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Cart() {
     return (
@@ -34,7 +35,9 @@ function Cart() {
                     <h3>Total: <span className="cart-total-sum">900 rub.</span></h3>
                 </div>
                 <div className="cart-bottom-buttons">
-                    <button className="cart-bottom-buttons-go-back"><img src="images/go-back-arrow.svg" alt="arrow" className="go-back-arrow" /> Go back</button>
+                    <Link to="/">
+                        <button className="cart-bottom-buttons-go-back"><img src="images/go-back-arrow.svg" alt="arrow" className="go-back-arrow" /> Go back</button>
+                    </Link>
                     <button className="cart-bottom-buttons-buy-now">Buy now</button>
                 </div>
             </div>

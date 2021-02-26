@@ -205,6 +205,15 @@
             margin-right: .6rem;
         }
     }
+    &-go-back:hover {
+        background: #CACACA;
+        border-color: #CACACA;
+        color: #fff;
+
+        .go-back-arrow {
+            filter: brightness(0) invert(1);
+        }
+    }
 
     &-buy-now {
         padding: 1rem 2rem;

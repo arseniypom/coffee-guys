@@ -32,6 +32,10 @@ a:hover, button:hover {
 button:focus {
 	outline:0;
 }
+a {
+	text-decoration: none;
+	color: inherit;
+}
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
