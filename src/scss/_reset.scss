@@ -51,3 +51,7 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
+
+button > * {
+	pointer-events: none;
+}

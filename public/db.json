@@ -1,0 +1,92 @@
+{
+    "coffee": [
+        {
+            "id": 1,
+            "imageUrl": "/images/yellow_pack.png",
+            "name": "Ethiopia Lalisa",
+            "grinds": [0, 1],
+            "sizes": [200, 500, 1000],
+            "price": 445,
+            "q-grade": 84,
+            "category": 0,
+            "rating": 3
+        },
+        {
+            "id": 2,
+            "imageUrl": "/images/yellow_pack.png",
+            "name": "Kosta-Ricka Halapa",
+            "grinds": [0, 1],
+            "sizes": [200, 500, 1000],
+            "price": 645,
+            "q-grade": 84,
+            "category": 0,
+            "rating": 6
+        },
+        {
+            "id": 5,
+            "imageUrl": "/images/yellow_pack.png",
+            "name": "Uganda Sipi Falls",
+            "grinds": [0, 1],
+            "sizes": [200, 500, 1000],
+            "price": 590,
+            "q-grade": 84,
+            "category": 0,
+            "rating": 5
+        },
+        {
+            "id": 6,
+            "imageUrl": "/images/yellow_pack.png",
+            "name": "Uganda Sipi Falls",
+            "grinds": [0, 1],
+            "sizes": [200, 500, 1000],
+            "price": 545,
+            "q-grade": 84,
+            "category": 0,
+            "rating": 4
+        },
+        {
+            "id": 0,
+            "imageUrl": "/images/black_pack.png",
+            "name": "Uganda Sipi Falls",
+            "grinds": [0, 1],
+            "sizes": [200],
+            "price": 1545,
+            "q-grade": 84,
+            "category": 0,
+            "rating": 4
+        },
+        {
+            "id": 4,
+            "imageUrl": "/images/rose_pack.png",
+            "name": "Gesha",
+            "grinds": [0, 1],
+            "sizes": [200, 500],
+            "price": 1045,
+            "q-grade": 84,
+            "category": 0,
+            "rating": 7
+        },
+        {
+            "id": 3,
+            "imageUrl": "/images/black_pack.png",
+            "name": "Uganda Sipi Falls",
+            "grinds": [0, 1],
+            "sizes": [200, 500, 1000],
+            "price": 745,
+            "q-grade": 84,
+            "category": 0,
+            "rating": 5
+        },
+        {
+            "id": 7,
+            "imageUrl": "/images/yellow_pack.png",
+            "name": "Uganda Sipi Falls",
+            "grinds": [0, 1],
+            "sizes": [200, 500, 1000],
+            "price": 545,
+            "q-grade": 84,
+            "category": 0,
+            "rating": 4
+        }
+    ]
+}

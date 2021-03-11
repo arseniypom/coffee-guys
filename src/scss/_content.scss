@@ -56,12 +56,12 @@
         }
 
         &-method {
-            color: #FE5F1E;
+            color: $action-color;
         }
         &-method::after {
             content: "";
             width: 100%;
-            border-bottom: 1px dotted #FE5F1E;
+            border-bottom: 1px dotted $action-color;
             display: block;
             margin-top: .2rem;
         }
@@ -87,9 +87,9 @@
                 padding: .688rem .7rem .625rem;
 
                 &-active {
-                    background-color: rgba(#FE5F1E, 0.05);
+                    background-color: rgba($action-color, 0.05);
                     p {
-                        color: #FE5F1E;
+                        color: $action-color;
                         font-family: "Proxima Nova";
                         font-weight: 700;
                     }
@@ -162,12 +162,17 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            }
+                cursor: pointer;
 
-            li.active {
-                background-color: #FFFFFF;
-                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
-                border-radius: 5px;
+                &.active {
+                    background-color: #FFFFFF;
+                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+                    border-radius: 5px;
+                }
+                &.disabled {
+                    opacity: .3;
+                    pointer-events: none;
+                }
             }
         }
     }

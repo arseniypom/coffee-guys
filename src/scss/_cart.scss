@@ -58,7 +58,7 @@
         justify-content: center;
 
         img {
-            width: 5rem;
+            width: 7rem;
         }
 
         &-text {
@@ -91,6 +91,10 @@
     font-family: "Proxima Nova";
     font-weight: 700;
 
+    &-quantity {
+        // width: 1.5rem;
+    }
+
     button {
         display: flex;
         align-items: center;
@@ -104,15 +108,15 @@
     }
 
     &-minus, &-plus {
-        color: #FE5F1E;
-        border: 2px solid #FE5F1E;
+        color: $action-color;
+        border: 2px solid $action-color;
         margin: 0 .75rem;
         font-size: .7rem;
     }
 
     &-minus:hover, &-plus:hover {
         color: #fff;
-        background-color:  #FE5F1E;
+        background-color:  $action-color;
     }
 
     &-price {
@@ -169,7 +173,7 @@
     &-sum {
         font-family: "Proxima Nova";
         font-weight: 700;
-        color: #FE5F1E;
+        color: $action-color;
     }
 }
 
@@ -220,7 +224,7 @@
         font-family: "Proxima Nova";
         font-weight: 700;
         color: #fff;
-        background: #FE5F1E;
+        background: $action-color;
         border-radius: 30px;
         border: none;
     }
