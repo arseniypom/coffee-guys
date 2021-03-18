@@ -1,11 +1,12 @@
 import {React, useState, useEffect, useRef} from 'react';
 import classNames from "classnames";
+import { connect } from 'react-redux';
 
 function FiltersSorting({sortingOptions}) {
 
     const [visiblePopup, setVisiblePopup] = useState(false);
     const [activeOption, setActiveOption] = useState(0);
-    const activeLabel = sortingOptions[activeOption];
+    const activeLabel = sortingOptions[activeOption].name;
 
     const sortRef = useRef();
 
@@ -36,7 +37,7 @@ function FiltersSorting({sortingOptions}) {
                     return <div onClick={() => onSelectItem(index)} className={classNames(
                         "filters-sorting-menu-item",
                         {"filters-sorting-menu-item-active": activeOption === index}
-                    )} key={`${sortingOption}_${index}`}><p>{sortingOption}</p></div>
+                    )} key={`${sortingOption.name}_${index}`}><p>{sortingOption.name}</p></div>
                 })}
             </div>}
         </div>

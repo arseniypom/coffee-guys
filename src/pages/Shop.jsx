@@ -18,9 +18,9 @@ function Shop({items}) {
             />
             <FiltersSorting
                 sortingOptions={[
-                    "popularity",
-                    "price",
-                    "q-grade"
+                    {name: "popularity"},
+                    {name: "price"},
+                    {name: "q-grade"}
                 ]}
             />
         </nav>

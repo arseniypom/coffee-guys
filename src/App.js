@@ -1,16 +1,21 @@
 import React, {useEffect, useState} from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { Route } from "react-router-dom";
 import axios from 'axios';
+import { connect } from 'react-redux'
 
 import { Header } from "./components";
 import { Shop, CartFull } from "./pages";
+// import store from './redux/store';
+import { setCoffee } from './redux/actions/coffee';
 
 
 function App() {
     const [coffeeRange, setCoffeeRange] = useState([]);
+
+
     useEffect(() => {
         axios.get("http://localhost:3000/db.json")
-            .then(({data}) => setCoffeeRange(data.coffee))
+            // .then(({data}) => store.dispatch(setCoffee(data.coffee)))
         // fetch("http://localhost:3000/db.json")
         //     .then((resp) => console.log(resp))
         //     .then((coffeeJson) => {
@@ -27,4 +32,4 @@ function App() {
     )
 }
 
-export default App;
+export default connect()(App);
