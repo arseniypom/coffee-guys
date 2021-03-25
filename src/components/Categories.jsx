@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import classNames from "classnames";
 
-export default function Categories({items, handleClick}) {
-    const [activeItem, setActiveItem] = useState(0)
+const Categories = React.memo(({items, handleClick}) => {
+    const [activeItem, setActiveItem] = React.useState(null)
+
+    const onSelectItem = (index) => {
+        setActiveItem(index)
+        handleClick(index)
+    }
+
     return (
         <div className="filters-div">
             {items &&
                 items.map((item, index) => {
-                return <button onClick={() => setActiveItem(index)} className={classNames(
+                return <button onClick={() => onSelectItem(index)} className={classNames(
                     "filters-button",
-                    {"filters-button-active": activeItem === index}
+                    {"filters-button-active": activeItem === index || index === 0 && activeItem === null}
                 )} key={`${item}_${index}`}>{item}</button>
             })}
         </div>
     );
-}
+})
+
+export default Categories;

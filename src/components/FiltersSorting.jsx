@@ -1,14 +1,13 @@
-import {React, useState, useEffect, useRef} from 'react';
+import React from 'react';
 import classNames from "classnames";
-import { connect } from 'react-redux';
 
-function FiltersSorting({sortingOptions}) {
+const FiltersSorting = React.memo(function FiltersSorting({sortingOptions}) {
 
-    const [visiblePopup, setVisiblePopup] = useState(false);
-    const [activeOption, setActiveOption] = useState(0);
+    const [visiblePopup, setVisiblePopup] = React.useState(false);
+    const [activeOption, setActiveOption] = React.useState(0);
     const activeLabel = sortingOptions[activeOption].name;
 
-    const sortRef = useRef();
+    const sortRef = React.useRef();
 
     const togglePopupVisibility = () => setVisiblePopup((prevValue) => !prevValue);
 
@@ -18,7 +17,7 @@ function FiltersSorting({sortingOptions}) {
         }
     };
 
-    useEffect(() => {
+    React.useEffect(() => {
         document.body.addEventListener("click", handleOutsideClick);
     }, [])
 
@@ -42,6 +41,6 @@ function FiltersSorting({sortingOptions}) {
             </div>}
         </div>
     )
-}
+})
 
 export default FiltersSorting
