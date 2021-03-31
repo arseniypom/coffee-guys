@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Categories, FiltersSorting, CoffeeCard } from "../components";
+import { fetchCoffee } from '../redux/actions/coffee';
 import { setCategory } from '../redux/actions/filters'
 import filters from "../redux/reducers/filters";
 
@@ -27,6 +28,11 @@ function Shop() {
       currentSortBy: state.filters.sortBy
     }
   })
+  
+  React.useEffect(() => {
+
+    dispatch(fetchCoffee())
+  } , []);
 
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index))

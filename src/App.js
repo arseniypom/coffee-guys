@@ -1,21 +1,18 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import axios from 'axios';
-import { useDispatch } from 'react-redux'
+// import axios from 'axios';
+// import { useDispatch } from 'react-redux'
 
 import { Header } from "./components";
 import { Shop, CartFull } from "./pages";
-import { setCoffee } from './redux/actions/coffee';
 
 
 function App() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    React.useEffect(() => {
-        axios.get("http://localhost:3001/coffee").then(({data}) => {
-            dispatch(setCoffee(data))
-        })
-    }, []);
+    // React.useEffect(() => {
+    //     dispatch(fetchCoffee())
+    // }, []);
 
     return (
         <div className="container">
