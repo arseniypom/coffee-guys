@@ -15,10 +15,12 @@ function App() {
     // }, []);
 
     return (
-        <div className="container">
-            <Header />
-            <Route exact path="/" component={Shop} />
-            <Route exact path="/cart" component={CartFull} />
+        <div className="background">
+            <div className="container">
+                <Header />
+                <Route exact path="/" component={Shop} />
+                <Route exact path="/cart" component={CartFull} />
+            </div>
         </div>
     )
 }

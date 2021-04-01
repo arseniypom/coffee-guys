@@ -88,6 +88,15 @@
         },
         {
             "id": 9,
+            "imageUrl": "/images/sonkolle.png",
+            "name": "Ethiopia Sonkolle",
+            "price": 389,
+            "q-grade": 85,
+            "category": 2,
+            "rating": 4
+        },
+        {
+            "id": 10,
             "imageUrl": "/images/drip-coffee-ethiopia-bale-mountain.png",
             "name": "Ethiopia Bale Mountain",
             "price": 350,
@@ -96,7 +105,7 @@
             "rating": 4
         },
         {
-            "id": 10,
+            "id": 11,
             "imageUrl": "/images/drip-coffee-colombia-la-cabana.png",
             "name": "Colombia La Cabana",
             "price": 350,

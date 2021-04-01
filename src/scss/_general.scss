@@ -42,6 +42,14 @@ body {
     overflow: hidden;
 }
 
+.background {
+    height: 100%;
+    padding: 2%;
+    background-image: url('../images/mike-kenneally-TD4DBagg2wE-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .container {
     background-color: #fff;
     border-radius: 10px;
