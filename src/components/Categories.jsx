@@ -1,25 +1,34 @@
 import React from "react";
 import classNames from "classnames";
+import PropTypes from 'prop-types';
 
-const Categories = React.memo(({items, handleClick}) => {
-    const [activeItem, setActiveItem] = React.useState(null)
+const Categories = React.memo(({items, onClickCategory, activeCategory}) => {
+    // const [activeItem, setActiveItem] = React.useState(null)
 
-    const onSelectItem = (index) => {
-        setActiveItem(index)
-        handleClick(index)
-    }
 
     return (
         <div className="filters-div">
+            <button onClick={() => onClickCategory(null)} className={classNames(
+                "filters-button",
+                {"filters-button-active": activeCategory === null}
+            )}>All</button>
             {items &&
                 items.map((item, index) => {
-                return <button onClick={() => onSelectItem(index)} className={classNames(
+                return <button onClick={() => onClickCategory(index)} className={classNames(
                     "filters-button",
-                    {"filters-button-active": activeItem === index || index === 0 && activeItem === null}
+                    {"filters-button-active": activeCategory === index}
                 )} key={`${item}_${index}`}>{item}</button>
             })}
         </div>
     );
 })
+
+Categories.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.string).isRequired,
+    activeCategory: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([null])]),
+    onClickCategory: PropTypes.func
+}
+
+Categories.defaultProps = {items: [], activeCategory: null}
 
 export default Categories;

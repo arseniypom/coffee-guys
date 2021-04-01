@@ -1,13 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Categories, FiltersSorting, CoffeeCard } from "../components";
+import { Categories, FiltersSorting, CoffeeCard, CoffeeLoadingCard } from "../components";
 import { fetchCoffee } from '../redux/actions/coffee';
-import { setCategory } from '../redux/actions/filters'
+import { setCategory, setSortBy } from '../redux/actions/filters'
 import filters from "../redux/reducers/filters";
 
 const categoryNames = [
-  "All",
   "Filter",
   "Espresso",
   "Capsules",
@@ -21,43 +20,47 @@ const sortItems = [
 
 function Shop() {
   const dispatch = useDispatch();
-  const {coffeeItems, currentFilterCategory, currentSortBy} = useSelector((state) => {
+  const {coffeeItems, isLoaded, currentFilterCategory, currentSortBy} = useSelector((state) => {
     return {
       coffeeItems: state.coffee.items,
+      isLoaded: state.coffee.isLoaded,
       currentFilterCategory: state.filters.category,
       currentSortBy: state.filters.sortBy
     }
   })
   
   React.useEffect(() => {
-
-    dispatch(fetchCoffee())
-  } , []);
+    dispatch(fetchCoffee(currentFilterCategory, currentSortBy))
+  } , [currentFilterCategory, currentSortBy]);
 
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index))
+  }, [])
+
+  const onSelectSortBy = React.useCallback((sortName) => {
+    dispatch(setSortBy(sortName))
   }, [])
 
   return (
   <div className="content">
     <nav className="filters">
       <Categories
-        handleClick={onSelectCategory}
+        activeCategory={currentFilterCategory}
+        onClickCategory={onSelectCategory}
         items={categoryNames}
       />
       <FiltersSorting
+        activeSortBy={currentSortBy}
+        onClickSortBy={onSelectSortBy}
         sortingOptions={sortItems}
       />
     </nav>
-    {  coffeeItems && coffeeItems.map((item, i) => {
-        return (
-          <CoffeeCard
-            key={item.id}
-            {...item}
-          />
-        )
-      })
-    }
+    <div className="cards-wrapper">
+      {  isLoaded
+          ? coffeeItems.map((item, i) => { return (<CoffeeCard key={item.id} {...item}/>)})
+          : Array(12).fill(0).map((_, index) => <CoffeeLoadingCard key={index} />)
+      }
+    </div>
   </div>
   );
 }
