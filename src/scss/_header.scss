@@ -55,7 +55,7 @@ header {
 }
 
 .header-cart-button {
-    width: 9.375rem;
+    min-width: 9.375rem;
     height: 3.125rem;
     background-color: $action-color;
     border-radius: 30px;

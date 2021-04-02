@@ -34,45 +34,51 @@ p {
     font-weight: 400;
 }
 
-body {
-    background-color: #FFDF8C;
-}
 
 #root {
-    overflow: hidden;
+    height: 100%;
+    width: 100vw;
 }
 
 .background {
-    height: 100%;
-    padding: 2%;
-    background-image: url('../images/mike-kenneally-TD4DBagg2wE-unsplash.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 100%;
+    padding: 0 4%;
+    overflow: hidden;
+    position: relative;
+    background-color: #F3F3F3;
+    // background-image: url('../images/coffee_beans.png');
+    // background-size: 50rem;
 }
 
-.container {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: auto;
+.container-wrapper {
+    position: relative;
 
     max-width: 1250px;
     margin: 2.5rem auto;
 }
 
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #F3F3F3;
+    position: relative;
+    z-index: 3;
+}
+
 @media (max-width: 1200px) {
-    .container {
+    .container-wrapper {
         max-width: 970px;
         margin: 2.5rem auto;
     }
 }
 @media (max-width: 992px) {
-    .container {
+    .container-wrapper {
         max-width: 750px;
         margin: 2.5rem auto;
     }
 }
 @media (max-width: 767px) {
-    .container {
+    .container-wrapper {
         max-width: none;
         margin: 2.5rem auto;
     }
