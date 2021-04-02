@@ -13,7 +13,8 @@ const FiltersSorting = React.memo(function FiltersSorting({sortingOptions, onCli
     const togglePopupVisibility = () => setVisiblePopup((prevValue) => !prevValue);
 
     const handleOutsideClick = (event) => {
-        if (!event.path.includes(sortRef.current)) {
+        const path = event.path || (event.composedPath && event.composedPath())
+        if (!path.includes(sortRef.current)) {
             setVisiblePopup(false)
         }
     };

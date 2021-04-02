@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Categories, FiltersSorting, CoffeeCard, CoffeeLoadingCard } from "../components";
 import { fetchCoffee } from '../redux/actions/coffee';
-import { setCategory, setSortBy } from '../redux/actions/filters'
-import filters from "../redux/reducers/filters";
+import { setCategory, setSortBy } from '../redux/actions/filters';
+import { addCoffeeToCart } from '../redux/actions/cart';
 
 const categoryNames = [
   "Filter",
@@ -20,12 +20,13 @@ const sortItems = [
 
 function Shop() {
   const dispatch = useDispatch();
-  const {coffeeItems, isLoaded, currentFilterCategory, currentSortBy} = useSelector((state) => {
+  const {coffeeItems, isLoaded, currentFilterCategory, currentSortBy, cartItems} = useSelector((state) => {
     return {
       coffeeItems: state.coffee.items,
       isLoaded: state.coffee.isLoaded,
       currentFilterCategory: state.filters.category,
-      currentSortBy: state.filters.sortBy
+      currentSortBy: state.filters.sortBy,
+      cartItems: state.cart.items,
     }
   })
   
@@ -41,27 +42,38 @@ function Shop() {
     dispatch(setSortBy(sortName))
   }, [])
 
+  const onClickAddCoffee = React.useCallback((coffeeItem) => {
+    dispatch(addCoffeeToCart(coffeeItem))
+  }, [])
+
   return (
-  <div className="content">
-    <nav className="filters">
-      <Categories
-        activeCategory={currentFilterCategory}
-        onClickCategory={onSelectCategory}
-        items={categoryNames}
-      />
-      <FiltersSorting
-        activeSortBy={currentSortBy}
-        onClickSortBy={onSelectSortBy}
-        sortingOptions={sortItems}
-      />
-    </nav>
-    <div className="cards-wrapper">
-      {  isLoaded
-          ? coffeeItems.map((item, i) => { return (<CoffeeCard key={item.id} {...item}/>)})
-          : Array(12).fill(0).map((_, index) => <CoffeeLoadingCard key={index} />)
-      }
+    <div className="content">
+      <nav className="filters">
+        <Categories
+          activeCategory={currentFilterCategory}
+          onClickCategory={onSelectCategory}
+          items={categoryNames}
+        />
+        <FiltersSorting
+          activeSortBy={currentSortBy}
+          onClickSortBy={onSelectSortBy}
+          sortingOptions={sortItems}
+        />
+      </nav>
+      <div className="cards-wrapper">
+        {  isLoaded
+            ? coffeeItems.map((item, i) => { return (
+              <CoffeeCard
+                onAddToCart={onClickAddCoffee}
+                key={item.id}
+                addedCount={cartItems[item.id] && cartItems[item.id].length}
+                {...item}
+              />)}
+            )
+            : Array(12).fill(0).map((_, index) => <CoffeeLoadingCard key={index} />)
+        }
+      </div>
     </div>
-  </div>
   );
 }
 

@@ -2,17 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function CoffeeCard({imageUrl, name, price, grinds, sizes}) {
+function CoffeeCard({id, imageUrl, name, price, grinds, sizes, onAddToCart, addedCount}) {
     const grindNames = ['in grains', 'pre-ground'];
     const packSizes = [200, 500, 1000];
-    const [activeType, setActiveType] = React.useState(grinds[0]);
-    const [activeSize, setactiveSize] = React.useState(sizes[0]);
+    const [activeType, setActiveType] = React.useState(0);
+    const [activeSize, setactiveSize] = React.useState(0);
 
     const handleGrindClick = (index) => {
         setActiveType(index);
     }
-    const handleSizeClick = (name) => {
-        setactiveSize(name);
+    const handleSizeClick = (index) => {
+        setactiveSize(index);
+    }
+    const onAddCoffee = () => {
+        const coffeeObj = {
+            id,
+            name,
+            imageUrl,
+            price,
+            grind: grindNames[activeType],
+            size: packSizes[activeSize],
+        }
+        onAddToCart(coffeeObj)
     }
 
 
@@ -30,7 +41,7 @@ function CoffeeCard({imageUrl, name, price, grinds, sizes}) {
                                 onClick={() => handleGrindClick(i)}
                                 className={classNames({
                                     "active": activeType === i,
-                                    "disabled": !grinds.includes(i)
+                                    "disabled": !grinds.includes(0)
                                 })}>
                                 {grindName}
                             </li>
@@ -43,9 +54,9 @@ function CoffeeCard({imageUrl, name, price, grinds, sizes}) {
                             <li 
                                 key={packSize}
                                 value="size-li"
-                                onClick={() => handleSizeClick(packSize)}
+                                onClick={() => handleSizeClick(i)}
                                 className={classNames({
-                                    "active": activeSize === packSize,
+                                    "active": activeSize === i,
                                     "disabled": !sizes.includes(packSize)
                                 })}>
                                 {packSize}g
@@ -56,18 +67,21 @@ function CoffeeCard({imageUrl, name, price, grinds, sizes}) {
             </div>
             <div className="product-card-bottom">
                 <h3 className="product-card-price">{price} rub</h3>
-                <button className="product-card-button"><strong>+</strong> Add <div className="added_amount active">3</div></button>
+                <button onClick={onAddCoffee} className="product-card-button">
+                    <strong>+</strong> Add {addedCount && <div className="added_amount active">{addedCount}</div>}
+                </button>
             </div>
         </div>
     )
 }
 
 CoffeeCard.propTypes = {
-    // imageUrl: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     grinds: PropTypes.arrayOf(PropTypes.number).isRequired,
     sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
+    onAddToCart: PropTypes.func,
+    addedCount: PropTypes.number,
 }
 
 CoffeeCard.defaultProps = {

@@ -1,8 +1,18 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+
 import HeaderButton from "./HeaderButton";
 
 export default function Header() {
+    // const { totalPrice, itemsCount } = useSelector(({cart}) => {
+    //     return {
+    //         totalPrice: cart.totalPrice,
+    //         itemsCount: cart.itemsCount
+    //     }
+    // })
+
+
     return (
         <header>
             <Link to="/">
@@ -15,10 +25,7 @@ export default function Header() {
                 </div>
             </Link>
             <Link to="/cart">
-                <HeaderButton 
-                    cartPrice="545"
-                    cartQuantity="1"
-                />
+                <HeaderButton />
             </Link>
         </header>
     );

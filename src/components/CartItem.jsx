@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function CartItem() {
+function CartItem({coffeeItem, }) {
     const [packsAmount, setPacksAmount] = useState(1);
 
     function handleClick(event) {
