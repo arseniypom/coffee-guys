@@ -7,7 +7,7 @@ export const setLoaded = (payload) => ({
 
 export const fetchCoffee = (category, sortBy) => (dispatch) => {
   dispatch(setLoaded(false))
-  axios.get(`http://localhost:3001/coffee?${category !== null ? `category=${category}` : ''}&_sort=${sortBy}&_order=desc`).then(({data}) => {
+  axios.get(`/coffee?${category !== null ? `category=${category}` : ''}&_sort=${sortBy}&_order=desc`).then(({data}) => {
     dispatch(setCoffee(data))
   })
 }
