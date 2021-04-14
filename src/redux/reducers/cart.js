@@ -4,23 +4,90 @@ const initialState = {
   itemsCount: 0
 }
 
+const getTotalPrice = arr => {
+  return arr.reduce((acc, currItem) => acc + currItem.price, 0);
+}
+
 const cart = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_COFFEE_TO_CART':
+    case 'ADD_COFFEE_TO_CART': {
+      const currentCoffeeItems = !state.items[action.payload.id]
+      ? [action.payload]
+      : [...state.items[action.payload.id].items, action.payload];
       const newItems = {
         ...state.items,
-        [action.payload.id]: !state.items[action.payload.id]
-        ? [action.payload]
-        : [...state.items[action.payload.id], action.payload]
+        [action.payload.id]: {
+          items: currentCoffeeItems,
+          totalPrice: getTotalPrice(currentCoffeeItems),
+        }
       }
-      const allCartItemsArray = [].concat.apply([], Object.values(newItems))
+      const allCartItemsArray = [].concat.apply([], Object.values(newItems).map((obj) => obj.items));
       return {
         ...state,
         items: newItems,
-        totalPrice: allCartItemsArray.reduce((acc, currItem) => acc + currItem.price, 0),
+        totalPrice: getTotalPrice(allCartItemsArray),
         itemsCount: allCartItemsArray.length,
       }
+    }
+    case 'CLEAR_CART': 
+      return initialState
 
+    case 'REMOVE_CART_ITEM': {
+      const newItems = {
+        ...state.items
+      }
+      const deletedItemPrice = newItems[action.payload].totalPrice;
+      const deletedItemCount = newItems[action.payload].itemsCount;
+      delete newItems[action.payload];
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: state.totalPrice - deletedItemPrice,
+        itemsCount: state.itemsCount - deletedItemCount,
+      }
+    }
+    case 'PLUS_CART_ITEM': {
+      const newObjItems = [
+        ...state.items[action.payload].items,
+        state.items[action.payload].items[0]
+      ]
+
+      const newItems = {
+        ...state.items,
+        [action.payload]: {
+          items: newObjItems,
+          totalPrice: getTotalPrice(newObjItems)
+        }
+      }
+      const allCartItemsArray = [].concat.apply([], Object.values(newItems).map((obj) => obj.items));
+
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: getTotalPrice(allCartItemsArray),
+        itemsCount: allCartItemsArray.length
+      }
+    }
+    case 'MINUS_CART_ITEM': {
+      const oldObjItems = state.items[action.payload].items;
+      const newObjItems = oldObjItems.length > 1 ? oldObjItems.slice(1) : oldObjItems;
+
+      const newItems = {
+        ...state.items,
+        [action.payload]: {
+          items: newObjItems,
+          totalPrice: getTotalPrice(newObjItems)
+        }
+      }
+      const allCartItemsArray = [].concat.apply([], Object.values(newItems).map((obj) => obj.items));
+
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: getTotalPrice(allCartItemsArray),
+        itemsCount: allCartItemsArray.length
+      }
+    }
     default:
       return state;
   }
