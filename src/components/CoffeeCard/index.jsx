@@ -29,42 +29,52 @@ function CoffeeCard({id, imageUrl, name, price, grinds, sizes, onAddToCart, adde
 
     return (
         <div className="product-card">
-            <img src={imageUrl} alt="coffee" className="product-card-img" />
-            <h3 className="product-card-name">{name}</h3>
-            <div className="product-card-options">
-                <ul className="product-card-options-grind">
-                    {grindNames.map((grindName, i) => {
-                        return (
-                            <li 
-                                key={grindName}
-                                value="grind-li"
-                                onClick={() => handleGrindClick(i)}
-                                className={classNames({
-                                    "active": activeType === i,
-                                    "disabled": !grinds.includes(0)
-                                })}>
-                                {grindName}
-                            </li>
-                        )
-                    })}
-                </ul>
-                <ul className="product-card-options-size">
-                    {packSizes.map((packSize, i) => {
-                        return (
-                            <li 
-                                key={packSize}
-                                value="size-li"
-                                onClick={() => handleSizeClick(i)}
-                                className={classNames({
-                                    "active": activeSize === i,
-                                    "disabled": !sizes.includes(packSize)
-                                })}>
-                                {packSize}g
-                            </li>
-                        )
-                    })}
-                </ul>
+            <div className="product-card-image-container">
+                <img src={imageUrl} alt="coffee" />
             </div>
+            <h3 className="product-card-name">{name}</h3>
+            { (() => {
+                    if (grinds.length) {
+                        return (
+                        <div className="product-card-options">
+                            <ul className="product-card-options-grind">
+                                {grindNames.map((grindName, i) => {
+                                    return (
+                                        <li 
+                                            key={grindName}
+                                            value="grind-li"
+                                            onClick={() => handleGrindClick(i)}
+                                            className={classNames({
+                                                "active": activeType === i,
+                                                "disabled": !grinds.includes(0)
+                                            })}>
+                                            {grindName}
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                            <ul className="product-card-options-size">
+                                {packSizes.map((packSize, i) => {
+                                    return (
+                                        <li 
+                                            key={packSize}
+                                            value="size-li"
+                                            onClick={() => handleSizeClick(i)}
+                                            className={classNames({
+                                                "active": activeSize === i,
+                                                "disabled": !sizes.includes(packSize)
+                                            })}>
+                                            {packSize}g
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </div>
+                        )
+                    }
+                }
+                )()
+            }
             <div className="product-card-bottom">
                 <h3 className="product-card-price">{price} rub</h3>
                 <button onClick={onAddCoffee} className="product-card-button">

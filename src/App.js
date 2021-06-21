@@ -27,11 +27,11 @@ function App() {
                     <Route exact path="/" component={Shop} />
                     <Route exact path="/cart" component={Cart} />
                 </div>
-                <img src={decorativeImg2} className="container-wrapper-decorative-img container-wrapper-decorative-img-2" />
-                <img src={decorativeImg3} className="container-wrapper-decorative-img container-wrapper-decorative-img-3" />
+                <img src={decorativeImg2} className="container-wrapper-decorative-img container-wrapper-decorative-img-2" alt=" " />
+                <img src={decorativeImg3} className="container-wrapper-decorative-img container-wrapper-decorative-img-3" alt=" " />
             </div>
-            <img src={decorativeImg1} className="background-decorative-img background-decorative-img-1" />
-            <img src={decorativeImg4} className="background-decorative-img background-decorative-img-4" />
+            <img src={decorativeImg1} className="background-decorative-img background-decorative-img-1" alt=" " />
+            <img src={decorativeImg4} className="background-decorative-img background-decorative-img-4" alt=" " />
         </div>
     )
 }

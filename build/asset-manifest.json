@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.8325d51a.chunk.css",
-    "main.js": "/static/js/main.7522a532.chunk.js",
-    "main.js.map": "/static/js/main.7522a532.chunk.js.map",
+    "main.css": "/static/css/main.c25bda81.chunk.css",
+    "main.js": "/static/js/main.a0fbad62.chunk.js",
+    "main.js.map": "/static/js/main.a0fbad62.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f04a5ca0.js",
     "runtime-main.js.map": "/static/js/runtime-main.f04a5ca0.js.map",
     "static/js/2.23b93c9b.chunk.js": "/static/js/2.23b93c9b.chunk.js",
     "static/js/2.23b93c9b.chunk.js.map": "/static/js/2.23b93c9b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.8325d51a.chunk.css.map": "/static/css/main.8325d51a.chunk.css.map",
+    "static/css/main.c25bda81.chunk.css.map": "/static/css/main.c25bda81.chunk.css.map",
     "static/js/2.23b93c9b.chunk.js.LICENSE.txt": "/static/js/2.23b93c9b.chunk.js.LICENSE.txt",
-    "static/media/style.scss": "/static/media/ProximaNova-Semibold.be42827a.ttf",
+    "static/media/style.scss": "/static/media/rosy-coffee-bg.761ae25c.png",
     "static/media/decorative1.318243a4.jpg": "/static/media/decorative1.318243a4.jpg",
     "static/media/decorative2.10acdde8.jpg": "/static/media/decorative2.10acdde8.jpg",
     "static/media/decorative3.2c673479.jpg": "/static/media/decorative3.2c673479.jpg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.f04a5ca0.js",
     "static/js/2.23b93c9b.chunk.js",
-    "static/css/main.8325d51a.chunk.css",
-    "static/js/main.7522a532.chunk.js"
+    "static/css/main.c25bda81.chunk.css",
+    "static/js/main.a0fbad62.chunk.js"
   ]
 }
